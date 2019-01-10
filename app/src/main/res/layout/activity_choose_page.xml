@@ -56,35 +56,28 @@
                 android:textStyle="bold" />
 
 
-
         </LinearLayout>
     </LinearLayout>
 
+    <EditText
+        android:id="@+id/station"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="82dp"
+        android:layout_marginBottom="205dp"
+        android:ems="10"
+        android:hint="역이름을 입력해주세요"
+        android:inputType="textPersonName" />
+
     <Button
-        android:id="@+id/findtoilet"
-        android:layout_width="214dp"
+        android:id="@+id/confirm"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="200dp"
-        android:text="화장실찾기" />
-
-    <Button
-        android:id="@+id/findnumber"
-        android:layout_width="214dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/findtoilet"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="144dp"
-        android:text="전화번호찾기" />
-
-    <Button
-        android:id="@+id/findTransferStation"
-        android:layout_width="214dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="261dp"
-        android:text="환승 역 찾기" />
+        android:layout_marginBottom="159dp"
+        android:text="확인" />
 
 </RelativeLayout>
