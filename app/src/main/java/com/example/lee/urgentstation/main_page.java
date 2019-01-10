@@ -11,17 +11,27 @@ import android.widget.Toast;
 public class main_page extends AppCompatActivity {
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page);
 
 
     }
     public void movetochoosepage(View v) {
-        
-        Intent intent = new Intent(this, choosepage.class);
-        startActivity(intent);
+        EditText idEdit = (EditText)findViewById(R.id.station);
+        String stationname = idEdit.getText().toString();
+
+        if(stationname.length()!=0) {
+            Intent intent = new Intent(this, choosepage.class);
+            startActivity(intent);
+        }
+        else{
+            Toast.makeText(getApplicationContext(),"입력이 안되있어요!.",Toast.LENGTH_LONG).show();
+        }
     }
 }
 
