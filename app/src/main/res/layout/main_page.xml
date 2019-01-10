@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom = "16dp"
-    tools:context=".ChoosePage">
+    tools:context=".main_page">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -78,6 +78,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="159dp"
+        android:onClick="movetochoosepage"
         android:text="확인" />
 
 </RelativeLayout>
