@@ -8,6 +8,7 @@
     tools:context=".main_page">
 
     <LinearLayout
+        android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="225dp"
         android:layout_alignParentStart="true"
@@ -21,6 +22,7 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/name"
                 android:layout_width="125dp"
                 android:layout_height="125dp"
                 android:layout_gravity="center"
@@ -39,34 +41,15 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <Button
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorPrimaryDark"
-                android:text="지하철역 번호찾기"
-                android:textColor="@color/colorAccent"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-
-        </LinearLayout>
     </LinearLayout>
 
     <EditText
         android:id="@+id/station"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="84dp"
-        android:layout_marginBottom="252dp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/linear"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp"
         android:ems="10"
         android:hint="역이름을 입력해주세요"
         android:inputType="textPersonName" />
@@ -74,21 +57,28 @@
     <Button
         android:id="@+id/confirm"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_height="50dp"
+        android:layout_below="@id/station"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="201dp"
         android:onClick="movetochoosepage"
         android:text="확인" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/neareststation"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/confirm"
+        android:layout_marginEnd="122dp"
+        android:layout_centerHorizontal="true"
+        android:text="가까운 역으로 검색" />
+
+    <TextView
+        android:id="@+id/textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="125dp"
-        android:layout_marginBottom="120dp"
-        android:text="가까운 역으로 검색" />
+        android:layout_below="@id/neareststation"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:text="TextView" />
 
 </RelativeLayout>
