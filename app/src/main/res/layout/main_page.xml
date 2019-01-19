@@ -65,8 +65,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="82dp"
-        android:layout_marginBottom="205dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="252dp"
         android:ems="10"
         android:hint="역이름을 입력해주세요"
         android:inputType="textPersonName" />
@@ -77,8 +77,18 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="159dp"
+        android:layout_marginBottom="201dp"
         android:onClick="movetochoosepage"
         android:text="확인" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="125dp"
+        android:layout_marginBottom="120dp"
+        android:text="가까운 역으로 검색" />
 
 </RelativeLayout>
