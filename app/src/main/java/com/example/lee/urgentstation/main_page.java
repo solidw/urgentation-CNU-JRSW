@@ -7,13 +7,16 @@ import android.content.res.AssetManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -27,29 +30,57 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 
-public class main_page extends AppCompatActivity {
+public class main_page extends AppCompatActivity{
     String stationname;
     HashMap<String,String> name_hosunname = new HashMap<>();
     AssetManager assetManager;
-    private TextView txtResult;
-    private Button button1;
+    private TextView Show;
+    private Button nearestbutton;
+    private List<String> station_list;
+    EditText idEdit;
+    AutoCompleteTextView autoCompleteTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page);
+        Show = (TextView)findViewById(R.id.station2);
+        station_list = new ArrayList<>();
 
+        autoCompleteTextView = (AutoCompleteTextView)findViewById(R.id.autoComplete);
+        autoCompleteTextView.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,station_list));
+
+        autoCompleteTextView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                runFirstComplete();
+            }
+        });
         assetManager = getResources().getAssets();
-        txtResult = (TextView)findViewById(R.id.textview);
-        button1 = (Button)findViewById(R.id.neareststation);
+
+        SoundSearch a = new SoundSearch();
+
+        nearestbutton = (Button)findViewById(R.id.neareststation);
 
         final LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-        button1.setOnClickListener(new View.OnClickListener() {
+        nearestbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if ( Build.VERSION.SDK_INT >= 23 &&
@@ -68,7 +99,7 @@ public class main_page extends AppCompatActivity {
                     //double altitude = location.getAltitude();
                     String min_name=null;
 
-                    String loadjson = loadJSONFromAsset();
+                    String loadjson = loadJSONFromAsset("finalJson1to8.json");
                     try {
                         JSONArray jarray = new JSONArray(loadjson);   // JSONArray 생성
                         double min=1000;
@@ -109,15 +140,18 @@ public class main_page extends AppCompatActivity {
         });
     }
     public void movetochoosepage(View v) {
-        EditText idEdit = (EditText)findViewById(R.id.station);
-        stationname = idEdit.getText().toString();
+        stationname= ((TextView)autoCompleteTextView).getText().toString();
+        //stationname = idEdit.getText().toString();
         getDataFromAsset();
-        if(stationname.length()!=0) {
+        if(name_hosunname.containsKey(stationname)) {
             Intent intent = new Intent(this, choosepage.class);
             intent.putExtra("hosun_station",name_hosunname.get(stationname));
             intent.putExtra("station",stationname);
            // Toast.makeText(getApplicationContext(),name_hosunname.get(stationname),Toast.LENGTH_LONG).show();
             startActivity(intent);
+        }
+        else if(!name_hosunname.containsKey(stationname)){
+            Toast.makeText(getApplicationContext(),"해당역을 찾을수가 없어요!.",Toast.LENGTH_LONG).show();
         }
         else{
             Toast.makeText(getApplicationContext(),"입력이 안되있어요!.",Toast.LENGTH_LONG).show();
@@ -160,10 +194,10 @@ public class main_page extends AppCompatActivity {
             double latitude = location.getLatitude();
             double altitude = location.getAltitude();
 
-            txtResult.setText("위치정보 : " + provider + "\n" +
+            /*txtResult.setText("위치정보 : " + provider + "\n" +
                     "위도 : " + longitude + "\n" +
                     "경도 : " + latitude + "\n" +
-                    "고도  : " + altitude);
+                    "고도  : " + altitude);*/
 
         }
 
@@ -180,11 +214,11 @@ public class main_page extends AppCompatActivity {
         return ((first_x-second_x)*(first_x-second_x))+((first_y-second_y)*(first_y-second_y));
     }
 
-    public String loadJSONFromAsset() {
+    public String loadJSONFromAsset(String filename) {
         String json = null;
         try {
 
-            InputStream is = getAssets().open("finalJson1to8.json");
+            InputStream is = getAssets().open(filename);
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -197,6 +231,54 @@ public class main_page extends AppCompatActivity {
         }
         return json;
 
+    }
+
+    public String[] settingList(){
+        String namelist = loadJSONFromAsset("justNameList.json");
+
+        try {
+            JSONArray jarray = new JSONArray(namelist);   // JSONArray 생성
+            String[] nameStringarray = new String[jarray.length()];
+            for(int i=0; i < jarray.length(); i++){
+                String jObject = jarray.getString(i);  // JSONObject 추출
+                nameStringarray[i] = jObject;
+
+
+            }
+            return nameStringarray;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+            return null;
+    }
+
+    private void runFirstComplete(){
+        AutoFirstTextView tvAutoFirst = (AutoFirstTextView) findViewById(R.id.autoComplete);
+        ArrayList<String> rstList = new ArrayList<>();
+        if( tvAutoFirst.getText().length() > 1 ){
+            String[] namestringarray = settingList();
+            for( int i = 0 ; i < namestringarray.length ; i++){
+                boolean bResult = SoundSearch.matchString( namestringarray[ i ], tvAutoFirst.getText().toString() );
+                if( bResult ){
+                    rstList.add( namestringarray[ i ] );
+                }
+            }
+            if( rstList.size() > 0 ){
+
+                String rstItem[] = new String[rstList.size()];
+                for( int i=0 ; i < rstList.size() ; i++){
+                    rstItem[i] = rstList.get(i);
+                }
+                tvAutoFirst.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, rstItem));
+                tvAutoFirst.showDropDown();
+            }
+            else{
+                tvAutoFirst.dismissDropDown();
+            }
+        }
+        else{
+            tvAutoFirst.dismissDropDown();
+        }
     }
 
 }

@@ -2,19 +2,13 @@ package com.example.lee.urgentstation;
 
 import android.content.Intent;
 import android.content.res.AssetManager;
-import android.graphics.Bitmap;
-import android.media.Image;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -49,9 +43,8 @@ public class choosepage extends AppCompatActivity {
 
     }
 
-    public void checktobutton(View v){
-
-        Glide.with(this).load("https://www.wantae.cf/testJpgs/4호선_동대문역.jpg").into(photoView);
+    public void showtoilet(View v){
+        Glide.with(this).load("https://www.wantae.cf/testJpgs/1호선_서울역역_화장실.jpg").into(photoView);
     }
 
     public void calltostation(View v){
