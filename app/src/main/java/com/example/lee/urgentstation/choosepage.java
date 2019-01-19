@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -31,15 +32,17 @@ public class choosepage extends AppCompatActivity {
     String hosun_station;
     String station;
     PhotoView photoView;
+    private TextView Show_stationname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choosepage);
 
         assetManager = getResources().getAssets();
-
+        Show_stationname = (TextView)findViewById(R.id.show_stationname);
         hosun_station = getIntent().getExtras().getString("hosun_station");
         station = getIntent().getExtras().getString("station");
+        Show_stationname.setText(station+"역");
         photoView = (PhotoView)findViewById((R.id.showmap));
        Glide.with(this).load("https://www.wantae.cf/testJpgs/"+hosun_station+"역.jpg").into(photoView);
 

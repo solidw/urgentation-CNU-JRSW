@@ -72,13 +72,4 @@
         android:layout_centerHorizontal="true"
         android:text="가까운 역으로 검색" />
 
-    <TextView
-        android:id="@+id/textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/neareststation"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="17dp"
-        android:text="TextView" />
-
 </RelativeLayout>

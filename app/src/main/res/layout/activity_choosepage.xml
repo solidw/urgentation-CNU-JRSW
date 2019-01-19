@@ -15,11 +15,22 @@
 
         android:contentDescription="@string/app_name" />
 
+    <TextView
+        android:id="@+id/show_stationname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/showmap"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:text="show_stationname"
+        android:textSize="40sp"
+        android:textStyle="bold"/>
+
     <Button
         android:id="@+id/check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/showmap"
+        android:layout_below="@id/show_stationname"
         android:layout_centerHorizontal="true"
         android:onClick="checktobutton"
         android:text="화장실표시" />
