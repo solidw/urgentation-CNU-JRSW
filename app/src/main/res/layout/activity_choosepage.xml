@@ -7,24 +7,34 @@
     android:paddingBottom = "16dp"
     tools:context=".choosepage">
 
-    <LinearLayout
+    <uk.co.senab.photoview.PhotoView
+        android:id="@+id/showmap"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="195dp"
-        android:layout_marginBottom="200dp"
-        android:orientation="vertical">
+        android:layout_height="400dp"
+        android:adjustViewBounds="true"
+
+        android:contentDescription="@string/app_name" />
+
+    <Button
+        android:id="@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/showmap"
+        android:layout_centerHorizontal="true"
+        android:onClick="checktobutton"
+        android:text="화장실표시" />
+
+    <Button
+        android:id="@+id/check3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/check"
+        android:layout_centerHorizontal="true"
+        android:onClick="calltostation"
+        android:text="전화걸기" />
 
 
-        <EditText
-            android:id="@+id/stationname"
-            android:layout_width="416dp"
-            android:layout_height="wrap_content"
-            android:gravity="center" />
-    </LinearLayout>
+
 
 
 </RelativeLayout>
