@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -38,13 +39,14 @@ public class choosepage extends AppCompatActivity {
         station = getIntent().getExtras().getString("station");
         Show_stationname.setText(station+"역");
         photoView = (PhotoView)findViewById((R.id.showmap));
-       Glide.with(this).load("https://www.wantae.cf/testJpgs/"+hosun_station+"역.jpg").into(photoView);
+       Glide.with(this).load("https://www.wantae.cf/testJpgs/"+hosun_station+"역.jpg").error(R.mipmap.no_map).into(photoView);
 
 
     }
 
     public void showtoilet(View v){
-        Glide.with(this).load("https://www.wantae.cf/testJpgs/1호선_서울역역_화장실.jpg").into(photoView);
+        getDataFromAsset();
+        Glide.with(this).load("https://www.wantae.cf/testJpgs/"+hosun_station+"역_화장실.jpg").error(R.mipmap.no_map).into(photoView);
     }
 
     public void calltostation(View v){

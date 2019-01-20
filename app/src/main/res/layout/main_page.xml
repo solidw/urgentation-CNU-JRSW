@@ -26,14 +26,13 @@
                 android:layout_width="125dp"
                 android:layout_height="125dp"
                 android:layout_gravity="center"
-                android:layout_margin="20dp"
+                android:layout_margin="15dp"
                 android:src="@drawable/ic_subway_black_24dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
                 android:text="급해역"
                 android:textColor="#ffffff"
                 android:textSize="35dp"
@@ -66,6 +65,15 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_below="@id/confirm"
+        android:layout_marginEnd="122dp"
+        android:layout_centerHorizontal="true"
+        android:text="가까운 역으로 검색" />
+
+    <Button
+        android:id="@+id/log"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/neareststation"
         android:layout_marginEnd="122dp"
         android:layout_centerHorizontal="true"
         android:text="가까운 역으로 검색" />

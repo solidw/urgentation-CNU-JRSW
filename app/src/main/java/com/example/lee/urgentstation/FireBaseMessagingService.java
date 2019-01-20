@@ -71,14 +71,14 @@ public class FireBaseMessagingService extends FirebaseMessagingService {
 
                         .setSmallIcon(R.mipmap.ic_launcher)
 
-                        .setContentTitle("FCM Message")
+                        .setContentTitle("급해역!!!")
 
                         .setContentText(messageBody)
 
                         .setAutoCancel(true)
 
                         .setSound(defaultSoundUri)
-
+                        .setDefaults(NotificationCompat.DEFAULT_VIBRATE)
                         .setContentIntent(pendingIntent);
 
 
