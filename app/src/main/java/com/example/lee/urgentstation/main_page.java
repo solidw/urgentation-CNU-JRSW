@@ -33,7 +33,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
+import java.util.*;
 
 public class main_page extends AppCompatActivity{
     String stationname;
@@ -50,7 +50,7 @@ public class main_page extends AppCompatActivity{
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page);
-        Show = (TextView)findViewById(R.id.station2);
+
         station_list = new ArrayList<>();
 
         autoCompleteTextView = (AutoCompleteTextView)findViewById(R.id.autoComplete);
@@ -242,9 +242,8 @@ public class main_page extends AppCompatActivity{
             for(int i=0; i < jarray.length(); i++){
                 String jObject = jarray.getString(i);  // JSONObject 추출
                 nameStringarray[i] = jObject;
-
-
             }
+            //Arrays.sort(nameStringarray);
             return nameStringarray;
         } catch (JSONException e) {
             e.printStackTrace();

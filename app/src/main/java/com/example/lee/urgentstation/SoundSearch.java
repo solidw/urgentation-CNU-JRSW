@@ -7,8 +7,7 @@ public class SoundSearch {
     private static final char[] INITIAL_SOUND = { 'ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ' };
 
     private static boolean isInitialSound(char searchar){
-
-        for(char c:INITIAL_SOUND){
+                for(char c:INITIAL_SOUND){
             if(c == searchar){
                 return true;
             }

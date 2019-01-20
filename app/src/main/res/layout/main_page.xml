@@ -70,15 +70,4 @@
         android:layout_centerHorizontal="true"
         android:text="가까운 역으로 검색" />
 
-    <EditText
-        android:id="@+id/station2"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/neareststation"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="31dp"
-        android:ems="10"
-        android:hint="역이름을 입력해주세요"
-        android:inputType="textPersonName" />
-
 </RelativeLayout>
