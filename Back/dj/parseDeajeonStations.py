@@ -1,6 +1,6 @@
 import json
 
-data = open('./beforeData.txt', 'r', encoding='utf-8-sig').read() # read
+data = open('./djBeforeData.txt', 'r', encoding='utf-8-sig').read() # read
 data = data.replace('\n', ',')
 data = data.split(',')
 
