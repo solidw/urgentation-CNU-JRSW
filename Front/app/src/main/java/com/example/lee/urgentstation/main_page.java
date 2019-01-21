@@ -112,7 +112,6 @@ public class main_page extends AppCompatActivity {
                     double latitude = location.getLatitude();
                    /*double longitude = 126.937012;
                     double latitude = 37.555445;*/
-                    //double altitude = location.getAltitude();
                     String min_name = null;
 
                     String loadjson = loadJSONFromAsset("finalJson1to8.json");

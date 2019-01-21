@@ -27,13 +27,24 @@
         android:textStyle="bold"/>
 
     <Button
-        android:id="@+id/fireextinguisher"
+        android:id="@+id/returnbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/show_stationname"
         android:layout_centerHorizontal="true"
+        android:onClick="returnbutton"
+        android:text="원본지도" />
+
+    <Button
+        android:id="@+id/fireextinguisher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/returnbutton"
+        android:layout_centerHorizontal="true"
         android:onClick="showfireextinguisher"
         android:text="소화기찾기" />
+
+
 
     <Button
         android:id="@+id/callbutton"

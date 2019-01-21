@@ -43,6 +43,10 @@ public class choosepage extends AppCompatActivity {
 
 
     }
+    public void returnbutton(View v){
+        getDataFromAsset();
+        Glide.with(this).load("https://www.wantae.cf/testJpgs/"+hosun_station+"역.jpg").error(R.mipmap.no_map).into(photoView);
+    }
 
     public void showfireextinguisher(View v){
         getDataFromAsset();
