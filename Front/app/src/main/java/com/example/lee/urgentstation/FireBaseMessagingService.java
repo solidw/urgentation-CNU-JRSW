@@ -71,7 +71,7 @@ public class FireBaseMessagingService extends FirebaseMessagingService {
 
                         .setSmallIcon(R.mipmap.ic_launcher)
 
-                        .setContentTitle("급해역!!!")
+                        .setContentTitle("안전해역")
 
                         .setContentText(messageBody)
 

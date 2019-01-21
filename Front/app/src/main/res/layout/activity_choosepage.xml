@@ -32,11 +32,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/show_stationname"
         android:layout_centerHorizontal="true"
-        android:onClick="showtoilet"
-        android:text="화장실표시" />
+        android:onClick="showentrace"
+        android:text="출구 찾기" />
 
     <Button
-        android:id="@+id/check3"
+        android:id="@+id/callbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/check"

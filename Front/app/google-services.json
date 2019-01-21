@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "632440300141",
+    "firebase_url": "https://pushmessage-d2e86.firebaseio.com",
+    "project_id": "pushmessage-d2e86",
+    "storage_bucket": "pushmessage-d2e86.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632440300141:android:069cc325a99e25c8",
+        "android_client_info": {
+          "package_name": "com.example.lee.urgentstation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "632440300141-qvn5u4o6euubimop3rqqpkhsqvfmk3j7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2PJjMdn_CT_dnrPtTnDm4ui5U6Qy6lRE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

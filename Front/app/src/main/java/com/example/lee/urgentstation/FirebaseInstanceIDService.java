@@ -23,8 +23,6 @@ public class FirebaseInstanceIDService extends FirebaseInstanceIdService {
 
     }
 
-
-
     private void sendRegistrationToServer(String token) {
 
     }

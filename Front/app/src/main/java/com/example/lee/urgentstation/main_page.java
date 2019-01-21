@@ -14,7 +14,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -51,9 +50,7 @@ public class main_page extends AppCompatActivity {
     AssetManager assetManager;
     private TextView Show;
     private Button nearestbutton;
-    private Button logbutton;
     private List<String> station_list;
-    EditText idEdit;
     String msg;
     AutoCompleteTextView autoCompleteTextView;
     private static final String TAG = "main_page";
@@ -96,36 +93,8 @@ public class main_page extends AppCompatActivity {
         assetManager = getResources().getAssets();
 
         SoundSearch a = new SoundSearch();
-        logbutton = (Button) findViewById(R.id.log);
+
         nearestbutton = (Button) findViewById(R.id.neareststation);
-        logbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                databaseReference.child("token").push().setValue(msg);
-                // Get token
-                // [START retrieve_current_token]
-                FirebaseInstanceId.getInstance().getInstanceId()
-                        .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<InstanceIdResult> task) {
-                                if (!task.isSuccessful()) {
-                                    Log.w(TAG, "getInstanceId failed", task.getException());
-                                    return;
-                                }
-
-                                // Get new Instance ID token
-                                String token = task.getResult().getToken();
-
-                                // Log and toast
-                                String msg = getString(R.string.msg_token_fmt, token);
-                                Log.d(TAG, msg);
-                                Toast.makeText(main_page.this, msg, Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                // [END retrieve_current_token]
-
-            }
-        });
         final LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
         nearestbutton.setOnClickListener(new View.OnClickListener() {
@@ -141,8 +110,8 @@ public class main_page extends AppCompatActivity {
                     String provider = location.getProvider();
                     double longitude = location.getLongitude();
                     double latitude = location.getLatitude();
-                /*    double longitude = 127.107711;
-                    double latitude = 37.505608;*/
+                   /*double longitude = 126.937012;
+                    double latitude = 37.555445;*/
                     //double altitude = location.getAltitude();
                     String min_name = null;
 
@@ -352,7 +321,7 @@ public class main_page extends AppCompatActivity {
                             if(databaseReference.getKey() != tokenID) {
                                 databaseReference.child(tokenID).push().setValue(token_msg[1] + ":" + token_msg[2]);
                             }
-                            Toast.makeText(main_page.this, msg, Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(main_page.this, msg, Toast.LENGTH_SHORT).show();
 
                         }
                     });

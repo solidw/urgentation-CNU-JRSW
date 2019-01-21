@@ -44,7 +44,7 @@ public class choosepage extends AppCompatActivity {
 
     }
 
-    public void showtoilet(View v){
+    public void showentrace(View v){
         getDataFromAsset();
         Glide.with(this).load("https://www.wantae.cf/testJpgs/"+hosun_station+"역_화장실.jpg").error(R.mipmap.no_map).into(photoView);
     }

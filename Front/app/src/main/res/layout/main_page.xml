@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="급해역"
+                android:text="안전해역"
                 android:textColor="#ffffff"
                 android:textSize="35dp"
                 android:textStyle="bold" />
@@ -68,14 +68,4 @@
         android:layout_marginEnd="122dp"
         android:layout_centerHorizontal="true"
         android:text="가까운 역으로 검색" />
-
-    <Button
-        android:id="@+id/log"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_below="@id/neareststation"
-        android:layout_marginEnd="122dp"
-        android:layout_centerHorizontal="true"
-        android:text="가까운 역으로 검색" />
-
 </RelativeLayout>
